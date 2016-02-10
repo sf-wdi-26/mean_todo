@@ -2,7 +2,7 @@
 
 | Objectives |
 | :--- |
-| Discuss the use cases for a MEAN Stackr |
+| Discuss the use cases for a MEAN Stack |
 | Connect your client-side Angular application to an Express server |
 
 The great thing about Angular is that it's back-end-agnostic. Since Angular was built with CRUD in mind, as long as your Angular app can query RESTful API endpoints, it doesn't matter the stack of the server. As you've already seen, you don't even need to have your own server to get your Angular app working.
