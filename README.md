@@ -1,9 +1,9 @@
-# <img src="https://cloud.githubusercontent.com/assets/7833470/10899314/63829980-8188-11e5-8cdd-4ded5bcb6e36.png" height="60"> MEAN Stack & Rails Angular
+# <img src="https://cloud.githubusercontent.com/assets/7833470/10899314/63829980-8188-11e5-8cdd-4ded5bcb6e36.png" height="60"> You can make a real MEAN Stack!
 
 | Objectives |
 | :--- |
-| Discuss the use cases for MEAN Stack and Rails Angular |
-| Connect your client-side Angular application to both an Express and Rails server |
+| Discuss the use cases for a MEAN Stackr |
+| Connect your client-side Angular application to an Express server |
 
 The great thing about Angular is that it's back-end-agnostic. Since Angular was built with CRUD in mind, as long as your Angular app can query RESTful API endpoints, it doesn't matter the stack of the server. As you've already seen, you don't even need to have your own server to get your Angular app working.
 
