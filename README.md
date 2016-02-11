@@ -229,10 +229,14 @@ If you're going to build your own server from scratch to connect to your Angular
   /*
    * public/javascripts/app.js
    */
-
-  app.controller('HomeCtrl', ['$scope', function ($scope) {
-    $scope.homeTest = "Welcome to the homepage!";
-  }]);
+  angular.module('sampleApp', ['ui.router'])
+    .config(config)
+    .controller('HomeController', HomeController);
+  
+  function HomeController() {
+    var vm = this;
+    vm.homeTest = "Welcome to the homepage!";
+  }
   ```
 
 #### Miscellaneous Setup
