@@ -106,9 +106,10 @@ You can follow the instructions here from scratch or use the barebones app in th
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="/">
 
-    <!-- angular -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
 
+    <!-- angular -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+  
     <!-- ui router -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
 
@@ -132,10 +133,11 @@ You can follow the instructions here from scratch or use the barebones app in th
     ...
 
     <!-- angular -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+  
     <!-- ui router -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+
 
     <!-- custom script (angular app) -->
     <script type="text/javascript" src="javascripts/app.js"></script>    
@@ -347,7 +349,7 @@ Now that your Angular app is all set up, it's time to CRUD a resource! You'll ne
 
   ```
 
-3. The Angular `$http` or `$resource` service to interact with your JSON API endpoints. See the module on <a href="https://github.com/sf-wdi-25/angular-resource-lab" target="_blank">ng-resource</a> for reference. Instead of calling an external API, you're now querying your own application's server.
+3. Use the Angular `$http` or `$resource` service to interact with your JSON API endpoints. See the module on <a href="https://github.com/sf-wdi-25/angular-resource-lab" target="_blank">ng-resource</a> for reference. Instead of calling an external API, you're now querying your own application's server.
 
 
 ![obligatory gif](https://media.giphy.com/media/3oEduQQQAR2a4y6Cek/giphy.gif)
