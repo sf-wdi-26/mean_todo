@@ -2,7 +2,7 @@ angular
   .module('TodoApp', ['ui.router', 'ngResource'])
   .config(config)
   .factory('Todo', TodoFactory)
-  .controller('TodosIndexCtrl', TodosIndexCtrl);
+  .controller('TodosIndexController', TodosIndexController);
 
 
   /*
@@ -24,7 +24,7 @@ angular
         .state('home', {
           url: "/",
           templateUrl: 'templates/todos/index.html',
-          controller: 'TodosIndexCtrl',
+          controller: 'TodosIndexController',
           controllerAs: 'index'
         });
     }
@@ -47,8 +47,8 @@ angular
   /*
   * CONTROLLER
   */
-  TodosIndexCtrl.$inject = ['Todo'];
-  function TodosIndexCtrl (Todo) {
+  TodosIndexController.$inject = ['Todo'];
+  function TodosIndexController (Todo) {
     var vm = this;
     vm.todos = Todo.query();
     vm.todo = {};
