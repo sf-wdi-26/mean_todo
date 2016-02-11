@@ -133,7 +133,7 @@ If you're going to build your own server from scratch to connect to your Angular
 
     <!-- angular -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
-    
+
     <!-- ui router -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
 
@@ -200,7 +200,7 @@ If you're going to build your own server from scratch to connect to your Angular
    */
   angular.module('sampleApp', ['ui.router'])
       .config(config);
-  
+
   config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
   function config($stateProvider, $urlRouterProvider, $locationProvider) {
       console.log('config');
@@ -232,7 +232,7 @@ If you're going to build your own server from scratch to connect to your Angular
   angular.module('sampleApp', ['ui.router'])
     .config(config)
     .controller('HomeController', HomeController);
-  
+
   function HomeController() {
     var vm = this;
     vm.homeTest = "Welcome to the homepage!";
@@ -241,7 +241,7 @@ If you're going to build your own server from scratch to connect to your Angular
 
 #### Miscellaneous Setup
 
-1. To allow `body-parser` to send and receive JSON data, add this line to `server.js`:
+1. To allow `body-parser` to parse incoming JSON data, add this line to `server.js`:
 
   ```js
   /*
@@ -250,10 +250,10 @@ If you're going to build your own server from scratch to connect to your Angular
 
   ...
 
-  // configure bodyParser (for receiving form data)
+  // parse form data ( application/x-www-form-urlencoded )
   app.use(bodyParser.urlencoded({ extended: true }));
-  // ADD THIS LINE
-  app.use(bodyParser.json());
+  // parse application/json
+  app.use(bodyParser.json());  // ADD THIS LINE
 
   ...
 
