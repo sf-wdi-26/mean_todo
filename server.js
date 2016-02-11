@@ -20,6 +20,13 @@ app.set('view engine', 'hbs');
 // connect to mongodb
 mongoose.connect('mongodb://localhost/mean_sample');
 
+
+
+
+
+
+
+
 app.get('/*', function(req,res){
   res.send("server running...");
 });

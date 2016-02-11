@@ -1,6 +1,6 @@
 {
   "name": "mean_todo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sf-wdi-24/mean_todo.git"
+    "url": "https://github.com/sf-wdi-25/mean_todo.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sf-wdi-24/mean_todo/issues"
+    "url": "https://github.com/sf-wdi-25/mean_todo/issues"
   },
-  "homepage": "https://github.com/sf-wdi-24/mean_todo",
+  "homepage": "https://github.com/sf-wdi-25/mean_todo",
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
