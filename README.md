@@ -92,7 +92,7 @@ If you're going to build your own server from scratch to connect to your Angular
 
 #### Requiring Angular
 
-1. Require the CDNs for Angular and `ngRoute` in `index.hbs`:
+1. Require the CDNs for Angular and `ui.router` in `index.hbs`:
 
   ```html
   <!-- views/index.hbs -->
@@ -107,8 +107,8 @@ If you're going to build your own server from scratch to connect to your Angular
     <!-- angular -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
 
-  <!-- ui router -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+    <!-- ui router -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
 
 
     <title>MEAN Sample</title>
@@ -131,9 +131,9 @@ If you're going to build your own server from scratch to connect to your Angular
 
     <!-- angular -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
-
-    <!-- ngRoute -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+    
+    <!-- ui router -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
 
     <!-- custom script (angular app) -->
     <script type="text/javascript" src="scripts/app.js"></script>    
@@ -176,7 +176,7 @@ If you're going to build your own server from scratch to connect to your Angular
    * public/scripts/app.js
    */
 
-  var app = angular.module('sampleApp', ['ngRoute']);
+  angular.module('sampleApp', ['ui.router']);
   ```
 
 #### Adding Templates
@@ -196,24 +196,29 @@ If you're going to build your own server from scratch to connect to your Angular
   /*
    * public/scripts/app.js
    */
-
-  app.config(['$routeProvider', '$locationProvider',
-    function ($routeProvider, $locationProvider) {
-      $routeProvider
-        .when('/', {
-          templateUrl: 'home.html',
-          controller: 'HomeCtrl'
-        })
-        .otherwise({
-          redirectTo: '/'
-        });
-
+  angular.module('sampleApp', ['ui.router'])
+      .config(config);
+  
+  config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+  function config($stateProvider, $urlRouterProvider, $locationProvider) {
+      console.log('config');
+      //this allows us to use routes without hash params!
       $locationProvider.html5Mode({
         enabled: true,
         requireBase: false
       });
+      // for any unmatched URL redirect to /
+      $urlRouterProvider.otherwise("/");
+
+       $stateProvider
+        .state('home', {
+          url: "/",
+          controller: 'HomeController',
+          controllerAs: 'home',
+          template: 'Home!'
+        });
     }
-  ]);
+
   ```
 
 2. Configure your controller with some test data, so you can check to see if the route, template, and controller are properly connected:
