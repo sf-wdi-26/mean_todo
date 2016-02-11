@@ -1,28 +1,31 @@
 angular
-  .module('todoApp', ['ngRoute', 'ngResource'])
+  .module('TodoApp', ['ui.router', 'ngResource'])
   .config(config)
   .factory('Todo', TodoFactory)
-  .controller('TodosIndexCtrl', [TodosIndexCtrl);
+  .controller('TodosIndexCtrl', TodosIndexCtrl);
 
 
   /*
   * CONFIG
   */
-  config.$inject = ['$routeProvider', '$locationProvider'];
-  function config($routeProvider, $locationProvider) {
-      $routeProvider
-        .when('/', {
-          templateUrl: 'templates/todos/index.html',
-          controller: 'TodosIndexCtrl'
-        })
-        .otherwise({
-          redirectTo: '/'
-        });
-
+  config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+  function config($stateProvider, $urlRouterProvider, $locationProvider) {
+      console.log('config');
+      //this allows us to use routes without hash params!
       $locationProvider.html5Mode({
         enabled: true,
         requireBase: false
       });
+
+          // for any unmatched URL redirect to /
+      $urlRouterProvider.otherwise("/");
+
+       $stateProvider
+        .state('home', {
+          url: "/",
+          templateUrl: 'templates/todos/index.html',
+          controller: 'TodosIndexCtrl'
+        });
     }
 
 
@@ -68,4 +71,4 @@ angular
       var todoIndex = $scope.todos.indexOf(todo);
       $scope.todos.splice(todoIndex, 1);
     };
-  };
+  }

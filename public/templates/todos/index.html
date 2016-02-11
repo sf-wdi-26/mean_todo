@@ -1,6 +1,5 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-
     <!-- form to create new todo -->
     <form ng-submit="createTodo()">
       <div class="form-group">
@@ -13,7 +12,7 @@
       </div>
       <input type="submit" value="Add To Do" class="btn btn-default">
     </form>
-    
+
     <!-- show all todos -->
     <div ng-if="todos.length > 0">
       <hr>
@@ -23,7 +22,7 @@
         </div>
         <ul class="list-group">
           <li ng-repeat="todo in todos" class="list-group-item">
-            
+
             <!-- todo content -->
             <div ng-hide="todo.editForm">
               <div class="pull-right">
@@ -34,7 +33,7 @@
               <h5 class="list-group-item-heading"><span ng-class="{done: todo.done}">{{todo.title}}</span></h5>
               <p class="list-group-item-text"><span ng-class="{done: todo.done}">{{todo.description}}</span></p>
             </div>
-            
+
             <!-- form to edit todo -->
             <form ng-show="todo.editForm" ng-submit="updateTodo(todo)">
               <div class="form-group">
