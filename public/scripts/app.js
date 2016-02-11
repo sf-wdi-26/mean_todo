@@ -24,7 +24,8 @@ angular
         .state('home', {
           url: "/",
           templateUrl: 'templates/todos/index.html',
-          controller: 'TodosIndexCtrl'
+          controller: 'TodosIndexCtrl',
+          controllerAs: 'index'
         });
     }
 
@@ -34,6 +35,7 @@ angular
   */
   TodoFactory.$inject = ['$resource'];
   function TodoFactory($resource) {
+    // gives you built in CRUD functions like: save, query, remove, update
     return $resource('/api/todos/:id', { id: '@_id' },
     {
       'update': { method:'PUT' }
@@ -45,30 +47,31 @@ angular
   /*
   * CONTROLLER
   */
-  TodosIndexCtrl.$inject = ['$scope', 'Todo'];
-  function TodosIndexCtrl ($scope, Todo) {
-    $scope.todos = Todo.query();
-    $scope.todo = {};
+  TodosIndexCtrl.$inject = ['Todo'];
+  function TodosIndexCtrl (Todo) {
+    var vm = this;
+    vm.todos = Todo.query();
+    vm.todo = {};
 
-    $scope.createTodo = function() {
-      var newTodo = Todo.save($scope.todo);
-      $scope.todo = {};
-      $scope.todos.unshift(newTodo);
+    vm.createTodo = function() {
+      var newTodo = Todo.save(vm.todo);
+      vm.todo = {};
+      vm.todos.unshift(newTodo);
     };
 
-    $scope.markDone = function(todo) {
+    vm.markDone = function(todo) {
       todo.done = (todo.done ? false : true);
       Todo.update(todo);
     };
 
-    $scope.updateTodo = function(todo) {
+    vm.updateTodo = function(todo) {
       Todo.update(todo);
       todo.editForm = false;
     };
 
-    $scope.deleteTodo = function(todo) {
+    vm.deleteTodo = function(todo) {
       Todo.remove({ id: todo._id });
-      var todoIndex = $scope.todos.indexOf(todo);
-      $scope.todos.splice(todoIndex, 1);
+      var todoIndex = vm.todos.indexOf(todo);
+      vm.todos.splice(todoIndex, 1);
     };
   }
