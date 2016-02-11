@@ -15,7 +15,7 @@ If you're going to build your own server from scratch to connect to your Angular
 
 1. Create a new Node/Express application:
 
-  ```zsh
+  ```bash
   ➜  mkdir mean_sample
   ➜  cd mean_sample
   ➜  touch server.js
@@ -24,7 +24,7 @@ If you're going to build your own server from scratch to connect to your Angular
 
 2. Install the following `node_modules`:
 
-  ```zsh
+  ```bash
   ➜  npm install --save express body-parser hbs mongoose
   ```
 
@@ -66,13 +66,15 @@ If you're going to build your own server from scratch to connect to your Angular
     | node_modules
       ...
     | public
-      | scripts
-      | styles
+      | javascripts
+      | stylesheets
+      | images
+      | templates
     | views
       - index.hbs
   ```
 
-  Make sure to create an `index.hbs` file inside the `views` folder. Your `index.hbs` will serve as the "layout" for your Angular app.
+  Make sure to create an `index.hbs` file inside the `views` folder. Your `index.hbs` will serve as the **"layout"** for your Angular app.
 
 #### Server Routes
 
@@ -119,7 +121,7 @@ If you're going to build your own server from scratch to connect to your Angular
 
 #### Configuring Your Angular App
 
-1. Create a new JavaScript file `public/scripts/app.js`. This is where you'll put all the logic for your Angular app.
+1. Create a new JavaScript file `public/javascripts/app.js`. This is where you'll put all the logic for your Angular app.
 
 2. Make sure to require your newly created `app.js` in `index.hbs`:
 
@@ -136,7 +138,7 @@ If you're going to build your own server from scratch to connect to your Angular
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
 
     <!-- custom script (angular app) -->
-    <script type="text/javascript" src="scripts/app.js"></script>    
+    <script type="text/javascript" src="javascripts/app.js"></script>    
   </head>
   ```
 
@@ -154,7 +156,7 @@ If you're going to build your own server from scratch to connect to your Angular
   </html>
   ```
 
-4. Add the `ng-view` directive inside the `<body>` tag in `views/index.hbs`:
+4. Add the `ui-view` directive inside the `<body>` tag in `views/index.hbs`:
 
   ```html
   <!-- views/index.hbs -->
@@ -163,7 +165,7 @@ If you're going to build your own server from scratch to connect to your Angular
     <nav class="navbar navbar-default">
       ...
     </nav>
-    <div ng-view></div>
+    <div ui-view></div>
   </body>
   ```
 
@@ -173,7 +175,7 @@ If you're going to build your own server from scratch to connect to your Angular
 
   ```js
   /*
-   * public/scripts/app.js
+   * public/javascripts/app.js
    */
 
   angular.module('sampleApp', ['ui.router']);
@@ -181,7 +183,7 @@ If you're going to build your own server from scratch to connect to your Angular
 
 #### Adding Templates
 
-1. Make a `templates` directory inside `public`, and create a template:
+1. Make a `templates` directory inside `public` if you don't have one, and create a template:
 
   ```
   ➜  mkdir public/templates
@@ -225,7 +227,7 @@ If you're going to build your own server from scratch to connect to your Angular
 
   ```js
   /*
-   * public/scripts/app.js
+   * public/javascripts/app.js
    */
 
   app.controller('HomeCtrl', ['$scope', function ($scope) {
