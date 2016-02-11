@@ -7,7 +7,7 @@
 
 The great thing about Angular is that it's back-end-agnostic. Since Angular was built with CRUD in mind, as long as your Angular app can query RESTful API endpoints, it doesn't matter the stack of the server. As you've already seen, you don't even need to have your own server to get your Angular app working.
 
-If you're going to build your own server from scratch to connect to your Angular app, you have many options, but we'll look at the two back-end stacks we've learned in the course so far - Mongo/Express/Node (MEN) and Ruby on Rails with Postgres.
+You can follow the instructions here from scratch or use the barebones app in this repo.
 
 ## MEAN Stack Setup
 
