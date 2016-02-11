@@ -348,3 +348,6 @@ Now that your Angular app is all set up, it's time to CRUD a resource! You'll ne
   ```
 
 3. The Angular `$http` or `$resource` service to interact with your JSON API endpoints. See the module on <a href="https://github.com/sf-wdi-25/angular-resource-lab" target="_blank">ng-resource</a> for reference. Instead of calling an external API, you're now querying your own application's server.
+
+
+![obligatory gif](https://media.giphy.com/media/3oEduQQQAR2a4y6Cek/giphy.gif)
