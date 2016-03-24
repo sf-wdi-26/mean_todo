@@ -180,7 +180,7 @@ You can follow the instructions here from scratch or use the barebones app in th
    * public/javascripts/app.js
    */
 
-  angular.module('sampleApp', ['ui.router']);
+  var app = angular.module('sampleApp', ['ui.router']);
   ```
 
 #### Adding Templates
@@ -200,8 +200,9 @@ You can follow the instructions here from scratch or use the barebones app in th
   /*
    * public/scripts/app.js
    */
-  angular.module('sampleApp', ['ui.router'])
-      .config(config);
+  var app = angular.module('sampleApp', ['ui.router']);
+  
+  app.config(config);
 
   config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
   function config($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -231,9 +232,10 @@ You can follow the instructions here from scratch or use the barebones app in th
   /*
    * public/javascripts/app.js
    */
-  angular.module('sampleApp', ['ui.router'])
-    .config(config)
-    .controller('HomeController', HomeController);
+  angular.module('sampleApp', ['ui.router']);
+  
+  app.config(config)
+  app.controller('HomeController', HomeController);
 
   function HomeController() {
     var vm = this;
